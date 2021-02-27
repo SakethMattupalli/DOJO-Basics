@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Query DOJO</title>
+    <style>
+      .class1{
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js"></script>
+    <h1 id = "test"> Hello DOJO</h1>
+    <h2 name = "sampleName">Sample Text</h2>
+
+    <script>
+      dojo.ready(
+      function(){
+        var temp = dojo.query("[name = 'sampleName']");
+        console.log(temp[0].innerHTML);
+        temp[0].innerHTML = "changed!!";
+      }
+      );
+    </script>
+
+  </body>
+</html>
