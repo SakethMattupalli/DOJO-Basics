@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Query DOJO</title>
+    <style>
+      .class1{
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js"></script>
+    <h1 id = "test"> Hello DOJO</h1>
+    <h2 class="class1">Sample Text</h2>
+
+    <script>
+      dojo.ready(
+      function(){
+        var temp = dojo.query("#test");
+        console.log(temp[0].innerHTML);
+        //temp[0].innerHTML = "Changig the text";
+        var temp1 = dojo.query(".class1");
+        temp1[0].innerHTML = "new Sample Text";
+      }
+      );
+    </script>
+
+  </body>
+</html>
