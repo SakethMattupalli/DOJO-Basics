@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Query DOJO</title>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config = "async:true"></script>
+    <h1 id = "test"> Hello DOJO</h1>
+    <h2 class="class1">Sample Text</h2>
+
+    <script>
+      require(["dojo/dom","dojo/query","dojo/domReady!"], function(dom, query){
+        var temp = dom.byId("test");
+        console.log(temp.innerHTML);
+        temp.innerHTML = "changed!!!";
+        var i = query("#test");
+        console.log(i[0].innerHTML);
+        var j = query(".class1");
+        console.log(j[0].innerHTML);
+      });
+    </script>
+
+  </body>
+</html>
