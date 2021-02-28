@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Mouse</title>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config = "async:true"></script>
+    <div id = "test"> <h1>Hover Here to get color effect</h1></div>
+    <button id="displayButton">Show</button>
+    <button id="hideButton">Hide</button>
+    <script>
+      require(["dojo/dom","dojo/on","dojo/mouse","dojo/domReady!"],function(dom,on,mouse){
+
+        var test = dom.byId("test");
+        var disp = dom.byId("displayButton");
+        var hide = dom.byId("hideButton");
+
+        on(test,mouse.enter,function(event){
+          test.style.background = "green";
+        });
+
+        on(test,mouse.leave,function(event){
+          test.style.background = "white";
+        });
+
+        // "mousedown" can also be used instead of "click";
+        on(disp,"click",function(event){
+          if(mouse.isRight(event)){
+            alert("No functionality for right Click!");
+          }else if(mouse.isLeft(event)){
+            alert('success');
+            test.style.display = "block";
+          }
+        });
+
+        on(hide,"click",function(event){
+          test.style.display = "none";
+        });
+
+      });
+    </script>
+
+
+
+  </body>
+</html>
