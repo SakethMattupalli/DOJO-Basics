@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>On Event</title>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config = "async:true"></script>
+    <div id = "test"> <h1>Hover Here to get color effect</h1></div>
+    <button id="displayButton">Show</button>
+    <button id="hideButton">Hide</button>
+    <script>
+      require(["dojo/dom", "dojo/on", "dojo/domReady!"],function(dom,on){
+        var content = dom.byId("test");
+        var disp = dom.byId("displayButton");
+        var hide = dom.byId("hideButton");
+        on(content,"mouseenter",function(event){
+          content.style.background = "green";
+        });
+
+        on(content,"mouseleave",function(event){
+          content.style.background = "white";
+        });
+
+
+
+        on(hide,"click", function(event){
+          content.style.display = "none";
+        });
+
+        on(disp,"click", function(event){
+          if(content.style.display == "none") {
+            content.style.display = "block";
+          }
+        });
+
+      }
+      );
+    </script>
+
+
+
+  </body>
+</html>
