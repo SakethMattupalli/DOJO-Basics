@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>dom class</title>
+    <style>
+      .greenText{
+        color: green;
+      }
+      .yellowText{
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config = "async:true"></script>
+    <div id = "test"> <h1>Sample text for dojo class</h1></div>
+    <button id="addGreen">AddGreen</button>
+    <button id="removeGreen">RemoveGreen</button>
+    <button id="toggleYellow">ToggleYellow</button>
+    <button id="checkGreen">checkGreen</button>
+    <button id="replaceGreen">ReplaceGreen</button>
+    <script>
+      require(["dojo/dom","dojo/on","dojo/dom-class","dojo/domReady!"],function(dom,on,domClass){
+        var addGreen = dom.byId("addGreen");
+        var removeGreen = dom.byId("removeGreen");
+        var toggleYellow = dom.byId("toggleYellow");
+        var checkGreen = dom.byId("checkGreen");
+        var replaceGreen = dom.byId("replaceGreen");
+
+        var test = dom.byId("test");
+
+        on(addGreen,"click",function(event){
+          domClass.add(test,"greenText");
+        });
+
+        on(removeGreen,"click",function(event){
+          domClass.remove(test,"greenText");
+        });
+
+        on(checkGreen,"click",function(event){
+          alert(domClass.contains(test,"greenText"));
+        });
+
+        on(toggleYellow,"click",function(event){
+          domClass.toggle(test,"yellowText");
+        });
+
+        on(replaceGreen,"click",function(event){
+          domClass.replace(test,"yellowText","greenText");
+        });
+
+      });
+    </script>
+
+
+
+  </body>
+</html>
